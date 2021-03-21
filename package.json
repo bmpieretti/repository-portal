@@ -13,7 +13,9 @@
     "build": "snowpack build",
     "lint": "eslint 'src/**/*'",
     "lint:fix": "eslint 'src/**/*' --fix",
-    "verify": "npm run lint"
+    "verify": "npm run lint",
+    "prepare": "husky install",
+    "prepare:commit": "lint-staged"
   },
   "author": "bmpieretti",
   "license": "ISC",
@@ -44,10 +46,15 @@
     "snowpack": "^3.1.2"
   },
   "dependencies": {
+    "express": "^4.17.1",
+    "faker": "^5.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "styled-components": "^5.2.1",
-    "express": "^4.17.1",
-    "faker": "^5.4.0"
+    "styled-components": "^5.2.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }

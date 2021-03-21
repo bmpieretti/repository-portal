@@ -1,3 +1,3 @@
 module.exports = {
-  'src/**/*': ['npm run lint:fix', 'git add']
+  'src/**/*.*': ['npm run lint:fix']
 };
