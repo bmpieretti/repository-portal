@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import GlobalStyles from './Styles';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -9,6 +10,7 @@ function App() {
 
   return (
     <div className="App">
+      <GlobalStyles />
       <header className="App-header">
         <p>
           Page has been open for
