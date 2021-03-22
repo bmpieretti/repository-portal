@@ -1,8 +1,11 @@
 const express = require('express');
 const faker = require('faker');
+const cors = require('cors');
 
 const app = express();
 const port = 8080;
+
+app.use(cors());
 
 const repositoryCount = 100;
 
@@ -29,5 +32,6 @@ app.get('/api/repos', (req, res) => {
 });
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`Example app listening at http://localhost:${port}`);
 });

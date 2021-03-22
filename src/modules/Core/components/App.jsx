@@ -1,25 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import styled from 'styled-components';
+import { Provider } from 'react-redux';
 import GlobalStyles from './Styles';
+import { Dashboard } from '../../RepoDashboard';
+import Header from './Header';
+
+import store from '../store/setupStore';
+
+const MainLayout = styled.main`
+  height: 100%;
+
+  & > * {
+    margin-bottom: var(--defaultSpacing);
+  }
+`;
 
 function App() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [count, setCount]);
-
   return (
-    <div className="App">
-      <GlobalStyles />
-      <header className="App-header">
-        <p>
-          Page has been open for
-          <code>{count}</code>
-          seconds.
-          <input value="Hello" />
-        </p>
-      </header>
-    </div>
+    <MainLayout>
+      <Provider store={store}>
+        <GlobalStyles />
+        <Header />
+        <Dashboard />
+      </Provider>
+    </MainLayout>
   );
 }
 
