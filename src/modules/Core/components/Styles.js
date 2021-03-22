@@ -3,13 +3,19 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
   :root {
     /** Colors **/
+    --green: #41c300;
+    --red: #f44336;
     --blue: #019aff;
+    --yellow: #ffc100;
     --black: #222831;
     --darkGrey: #393e46;
-    --lightGrey: #a9a9a9;
+    --lightGrey: #EFEFEF;
     --white: #EEE;
 
     /** Theme **/
+    --error: var(--red);
+    --warning: var(--yellow);
+    --success: var(--green);
     --info: var(--blue);
     --foreground: var(--white);
     --background: var(--lightGrey);
@@ -54,6 +60,10 @@ export default createGlobalStyle`
   body {
     height: 100%;
     font-size: 1.6em;
+  }
+
+  .root {
+    height: 100%;
   }
 
   /** Headings **/

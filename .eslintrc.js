@@ -19,6 +19,9 @@ module.exports = {
     'comma-dangle': 0,
     'import/prefer-default-export': 0,
     'node/no-unsupported-features/es-syntax': 0,
-    'implicit-arrow-linebreak': 0
+    'implicit-arrow-linebreak': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/forbid-prop-types': 0,
+    'object-curly-newline': 0
   }
 };
