@@ -54,6 +54,20 @@ const DataDisplay = styled.div`
   }
 `;
 
+const RiskCell = styled(TableCell)(({ risk }) => {
+  let color = 'inherit';
+
+  if (risk <= 10) color = 'var(--success)';
+  if (risk <= 7) color = 'var(--warning)';
+  if (risk <= 3) color = 'var(--error)';
+
+  return `
+    && {
+      color: ${color}
+    }
+  `;
+});
+
 function Row({ repo }) {
   const [open, setOpen] = React.useState(false);
   const lastUpdated = repo.lastActivity
@@ -78,7 +92,9 @@ function Row({ repo }) {
         </TableCell>
         <TableCell>{repo.type}</TableCell>
         <TableCell>{lastUpdated}</TableCell>
-        <TableCell>{repo.riskScore}</TableCell>
+        <RiskCell align="center" risk={repo.riskScore}>
+          {repo.riskScore}
+        </RiskCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
