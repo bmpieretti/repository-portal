@@ -1,1 +1,1 @@
-export { default as Table } from './components/Table';
+export { default as CopyText } from './components/CopyText';

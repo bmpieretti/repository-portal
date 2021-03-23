@@ -1,74 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
-import { Table } from '../../Shared';
+import Row from './TableRow';
 
-const UrlDisplay = styled.small`
-  color: var(--lightGrey);
+const TableWrapper = styled(Table)`
+  && th,
+  && td {
+    font-size: 1em;
+  }
 `;
 
-const DashboardTable = ({ repos }) => {
-  const data = React.useMemo(
-    () =>
-      repos.map((repo) => {
-        const { url, name, type, riskScore, latestActivity } = repo;
-        return {
-          col1: (
-            <>
-              <div>{name}</div>
-              <UrlDisplay>{url}</UrlDisplay>
-            </>
-          ),
-          col2: type,
-          col3: riskScore,
-          col4: latestActivity,
-          col5: <button type="button">Details</button>
-        };
-      }),
-    []
-  );
+const TableBodyWrapper = styled(TableBody)`
+  && > *:nth-of-type(2n + 1) > * {
+    border-bottom: none;
+  }
+`;
 
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: 'Repo Name',
-        accessor: 'col1'
-      },
-      {
-        Header: 'Type',
-        accessor: 'col2'
-      },
-      {
-        Header: 'Risk',
-        accessor: 'col3'
-      },
-      {
-        Header: 'Last Updated',
-        accessor: 'col4'
-      },
-      {
-        Header: 'Actions',
-        accessor: 'col5'
-      }
-    ],
-    []
-  );
+const CollapsibleTable = ({ repos = [] }) => (
+  <TableContainer component={Paper}>
+    <TableWrapper aria-label="collapsible table">
+      <TableHead>
+        <TableRow>
+          <TableCell />
+          <TableCell>Repo Name</TableCell>
+          <TableCell>Type</TableCell>
+          <TableCell>Last Updated</TableCell>
+          <TableCell>Risk</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBodyWrapper>
+        {repos.map((item) => (
+          <Row key={item.id} repo={item} />
+        ))}
+      </TableBodyWrapper>
+    </TableWrapper>
+  </TableContainer>
+);
 
-  return <Table columns={columns} data={data} height={400} />;
-};
-
-DashboardTable.propTypes = {
+CollapsibleTable.propTypes = {
   repos: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      riskScore: PropTypes.number.isRequired,
-      type: PropTypes.oneOf(['public', 'private']),
-      latestActivity: PropTypes.instanceOf(Date)
+      id: PropTypes.number.isRequired
     })
   ).isRequired
 };
 
-export default DashboardTable;
+export default CollapsibleTable;

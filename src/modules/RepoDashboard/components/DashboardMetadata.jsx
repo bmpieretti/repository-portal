@@ -33,6 +33,7 @@ const MetadataDisplay = styled.div(({ risk }) => {
     span {
       color: ${color};
       font-size: 2.4em;
+      line-height: 1em;
     }
   `;
 });
@@ -59,7 +60,7 @@ const DashboardMetadata = (props) => {
           <span>{repos.length}</span>
         </MetadataDisplay>
         <MetadataDisplay risk={averageRisk}>
-          Average Score
+          Average Risk Score
           <span>{averageRisk}</span>
         </MetadataDisplay>
       </MetadataWrapper>

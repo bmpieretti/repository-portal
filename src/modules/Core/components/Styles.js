@@ -60,9 +60,10 @@ export default createGlobalStyle`
   body {
     height: 100%;
     font-size: 1.6em;
+    background-color: var(--lightGrey);
   }
 
-  .root {
+  #root {
     height: 100%;
   }
 
