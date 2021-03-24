@@ -184,10 +184,12 @@ export default createGlobalStyle`
     margin: .6rem;
   }
 
+  /* stylelint-disable no-descending-specificity */
   ::-moz-selection {
     background: var(--info);
     text-shadow: none;
   }
+  /* stylelint-enable no-descending-specificity */
 
   ::selection {
     background: var(--info);

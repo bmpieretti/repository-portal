@@ -2,4 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 
-npm run prepare:commit && if npx git-branch-is master; then npm run verify; fi
+npm run lint:staged && if npx git-branch-is master; then npm run verify; fi
