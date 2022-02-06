@@ -23,9 +23,11 @@ const HeaderWrapper = styled(Container)`
 `;
 
 export default () => (
-  <Header>
+  <Header data-testid="app-header">
     <HeaderWrapper>
-      <h1>Repository Dashboard</h1>
+      <a href="/">
+        <h1>Repository Dashboard</h1>
+      </a>
     </HeaderWrapper>
   </Header>
 );

@@ -1,10 +1,11 @@
 module.exports = {
   parser: '@babel/eslint-parser',
-  plugins: ['prettier'],
-  extends: ['prettier', 'airbnb'],
+  plugins: ['cypress', 'prettier'],
+  extends: ['airbnb', 'plugin:cypress/recommended', 'prettier'],
   env: {
     browser: true,
-    es6: true
+    es6: true,
+    'cypress/globals': true
   },
   parserOptions: {
     ecmaVersion: 6,

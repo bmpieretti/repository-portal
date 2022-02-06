@@ -4,3 +4,6 @@ node_modules
 .env
 .vs_code
 .DS_Store
+
+cypress/videos
+cypress/screenshots

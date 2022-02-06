@@ -53,5 +53,9 @@ export default () => {
     dispatch(fetchRepos());
   }, []);
 
-  return <DashboardContainer>{renderContent(repoData)}</DashboardContainer>;
+  return (
+    <DashboardContainer data-testid="repo-dashboard-container">
+      {renderContent(repoData)}
+    </DashboardContainer>
+  );
 };
